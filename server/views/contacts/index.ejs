@@ -22,6 +22,8 @@
          <br>
          <h3>Contacts List</h3>
 
+         <a class="btn btn-primary" href="/contacts/add"> <i class="fa fa-plus"> </i> Add a Contact </a>
+
          <table class ="table table-striped table-hover table-bordered">
            <tr>
              <th class="text-center"> Name</th>
@@ -39,7 +41,7 @@
                 <td class="text-center"> <%= contacts[count].age %></td>
                 <td class="text-center"> <%= contacts[count].phone %></td>
                 <td class="text-center"> <a class="btn btn-primary" href="/contacts/<%= contacts[count]._id %>" role="button"> <i class ="fa fa-pencil-square-o"></i> Edit   </a> </td>
-                <td class="text-center"> <a class="btn btn-danger"  href="#" role="button"> <i class ="fa fa-trash-o"></i> Delete </a> </td>
+                <td class="text-center"> <a class="btn btn-danger"  href="/contacts/delete/<%= contacts[count]._id %>" role="button"> <i class ="fa fa-trash-o"></i> Delete </a> </td>
               </tr>
           <% } %>
 

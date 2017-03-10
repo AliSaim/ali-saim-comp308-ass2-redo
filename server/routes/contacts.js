@@ -31,6 +31,33 @@ router.get('/', (req, res, next) => {
 
 });
 
+//GET add page - show the blank details pages
+router.get('/add', (req, res, next) =>{
+  res.render('contacts/details', {
+    title: 'Add a new Contact',
+    contacts: ''
+  });
+});
+
+//POST add page - save the Contact to the db
+router.post('/add', (req, res, next) => {
+  contact.create({
+    "name": req.body.name,
+    "age": req.body.age,
+    "phone": req.body.phone
+  }, (err, contact) => {
+    if(err) 
+    {
+        console.log(err);
+        res.end(err);
+    }
+    else
+    {
+      res.redirect('/contacts');
+    }
+  });
+});
+
 
 /* GET edit - show current contact to edit. */
 router.get('/:id', (req, res, next) => {
@@ -88,6 +115,25 @@ router.post('/:id', (req, res, next) => {
 
 });
 
+
+//GET delete - should delete by id
+router.get('/delete/:id', (req, res, next) => {
+
+  //get a reference to the id of the contact to edit
+  let id = req.params.id;
+
+  contact.remove({_id: id}, (err) => {
+    if(err)
+    {
+      console.log(err);
+      res.end(err);
+    }
+    else
+    {
+      res.redirect('/contacts');
+    }
+  });
+});
 
 
 

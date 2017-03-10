@@ -20,6 +20,18 @@ let bodyParser = require('body-parser');
 
 let index = require('./routes/index');
 
+//adding the mongoose module
+let mongoose = require('mongoose');
+//connect to mongoDB and use the contacts database
+mongoose.connect('mongodb://localhost/contacts', (err) => {
+  if(err){
+    console.log("Error connecting to the database");
+  }
+  else{
+    console.log("Conntected to MongoDB");
+  }
+});
+
 let app = express();
 
 // view engine setup

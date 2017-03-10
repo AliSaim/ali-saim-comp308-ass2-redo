@@ -31,7 +31,7 @@ router.get('/', (req, res, next) => {
 });
 
 /* GET about page. */
-router.get('/about', (req, res, next) => {
+router.get('/contactlist', (req, res, next) => {
   //find all contacts in the contacts collections
 
   contact.find((err, contacts) => {

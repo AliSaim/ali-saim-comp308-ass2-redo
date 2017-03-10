@@ -20,52 +20,18 @@
       <h1><%= title %></h1>
         <div class="col-md-offset-2 col-md-8">
 
-        <div class ="project">
-
-                    <div class="col-xs-offset-0 col-md-4"> 
-                    <h4>Profile</h4>
-
-                            <img class="picture" src="images/ali.jpg" alt="Ali's Picture">
-                            <br>
-                            <p>
-                                This is picture of me, I am in my normal phase of questioning life. Should I eat soup or pho?
-                            </p>
-                    </div>
 
 
-                    <div class="col-xs-9 col-md-4"> 
-                    <h4>Education</h4>
-                    
-                            <img class="picture" src="images/school.png" alt="Centennial College Image">
-                            <br>
-                            <p>
-                                I started studying software engineering at Centennial College in Setpember
-                                 2013 and now I am curently enrolled in my last semester.
-                            
-                            </p>
-                    </div>
+         <br>
+         <h3>Contacts List</h3>
+         <ul>
+          <% for (let count = 0; count < contacts.length; count++) { %>
+            <li class="list-group-item">
+                <%= contacts[count].name %>
+            </li>
+          <% } %>
 
-
-                    <div class="col-xs-offset-0 col-md-4"> 
-                    <h4>Skill Set</h4>
-  
-                            <p>
-                            Some of the tools and languages that I have in my locker room:
-                            </p>
-
-                            <ul class ="skills">
-                              <li>HTML & CSS</li>
-                              <li>Java</li>
-                              <li>C#</li>
-                              <li>Android Studio</li>
-                              <li>Unity</li>
-                              <li>NodeJS...learning</li>
-                              <li>more</li>
-                            </ul>
-
-                    </div>
-                    
-         </div>
+         </ul>
 
 
         </div>

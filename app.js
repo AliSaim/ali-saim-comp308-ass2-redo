@@ -23,14 +23,25 @@ let index = require('./routes/index');
 //adding the mongoose module
 let mongoose = require('mongoose');
 //connect to mongoDB and use the contacts database
-mongoose.connect('mongodb://localhost/contacts', (err) => {
-  if(err){
-    console.log("Error connecting to the database");
-  }
-  else{
-    console.log("Conntected to MongoDB");
-  }
+
+//Mongoose URI
+//let URI = "mongodb://ali:12345@ds145299.mlab.com:45299/contacts";
+
+
+let URI = "mongodb://localhost/database";
+//connect to the Mongo db using the URI
+mongoose.connect(URI);
+
+//create a db object and make a reference the connection
+let db = mongoose.connection;
+
+//listen for a successful connection
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', () => {
+  console.log("Connected to MongoDB...");
 });
+
+
 
 let app = express();
 

@@ -38,7 +38,7 @@
                 <td class="text-center"> <%= contacts[count].name %></td>
                 <td class="text-center"> <%= contacts[count].age %></td>
                 <td class="text-center"> <%= contacts[count].phone %></td>
-                <td class="text-center"> <a class="btn btn-primary" href="#" role="button"> <i class ="fa fa-pencil-square-o"></i> Edit   </a> </td>
+                <td class="text-center"> <a class="btn btn-primary" href="/contacts/<%= contacts[count]._id %>" role="button"> <i class ="fa fa-pencil-square-o"></i> Edit   </a> </td>
                 <td class="text-center"> <a class="btn btn-danger"  href="#" role="button"> <i class ="fa fa-trash-o"></i> Delete </a> </td>
               </tr>
           <% } %>

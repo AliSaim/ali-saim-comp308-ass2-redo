@@ -1,0 +1,54 @@
+  <!-- COMP308 - Emerging Technology Assignment One
+ * File: index.ejs
+ * Student: Ali Saim (300759480)
+ * Date Created: Feb 5th 2017
+ * Date Last Modified: Feb 10th 2017
+ * Description: index.ejs is a class used to build a view to the website
+ * Revision History:
+ *  Feb 05, 2017:
+ * 					Created index.ejs
+ * Feb 10, 2017
+ *          Added internal documentation
+ -->
+
+<!--INCLUDE THE PAGE HEADER TO THIS VIEW -->
+  <% include ../partials/header.ejs %>
+
+    <!-- CONTENT PAGE FOR HOME -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+          <h1><%= title %></h1>
+          
+
+            <form method="post">
+                    <div class="form-group">
+                        <label for="NameTextField">Name</label>
+                        <input type="text" class="form-control" id="NameTextField" name="name" placeholder="Contact Name" required value="<%= contacts.name %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="AgeTextField">Age</label>
+                        <input type="text" class="form-control" id="AgeTextField" name="age" placeholder="Contact Age" required value="<%= contacts.age %>">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="PhoneTextField">Phone Number</label>
+                        <input type="text" class="form-control" id="PhoneTextField" name="phone" placeholder="Contact Number" required value="<%= contacts.phone %>">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+
+          
+          
+          
+        </div>
+      </div>
+    </div>
+
+
+
+<!--INCLUDE THE PAGE FOOTER TO THIS VIEW -->
+    <% include ../partials/footer.ejs %>

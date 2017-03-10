@@ -30,27 +30,6 @@ router.get('/', (req, res, next) => {
    });
 });
 
-/* GET about page. */
-router.get('/contactlist', (req, res, next) => {
-  //find all contacts in the contacts collections
-
-  contact.find((err, contacts) => {
-
-    if(err)
-    {
-      return console.error(err);
-    }
-    else
-    {
-      res.render('content/contactlist', {
-        title: 'ContactList',
-        contacts: contacts
-      });
-    }
-});
-
-
-});
 
 /* GET projects page. */
 router.get('/projects', (req, res, next) => {

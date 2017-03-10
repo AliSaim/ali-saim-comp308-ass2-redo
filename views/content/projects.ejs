@@ -1,0 +1,86 @@
+  <!-- COMP308 - Emerging Technology Assignment One
+ * File: projects.ejs
+ * Student: Ali Saim (300759480)
+ * Date Created: Feb 5th 2017
+ * Date Last Modified: Feb 10th 2017
+ * Description: projects.ejs is a class used to build a view to the website
+ * Revision History:
+ *  Feb 05, 2017:
+ * 					Created projects.ejs
+ * Feb 10, 2017
+ *          Added internal documentation
+ -->
+
+
+<!--INCLUDE THE PAGE HEADER TO THIS VIEW -->
+<% include ../partials/header.ejs %>
+
+<!-- CONTENT PAGE FOR PROJECTS -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-offset-1 col-md-10">
+          <h1><%= title %></h1>
+          
+
+          <div class ="project">
+
+                    <div class="col-xs-9 col-md-4"> 
+                    <h4>Soul Seeker</h4>
+                    <br>
+                            <img class="picture" src="images/pacman.png" alt="Soul Seeker Image">
+                            <br>
+                            <p>
+                                This is a game that my friend and I made in 2016. This game
+                                is made using the Unity engine. Its a 3D first person game.
+                                This game is a 3D pacman man, the player is traped in another 
+                                dimension.
+                            </p>
+
+                            <a href="https://github.com/AliSaim/COMP305_SoulSeeker"> 
+                            <i class="fa fa-github fa-2x" aria-hidden="true"></i> Source Code</a>
+                    </div>
+
+
+                    <div class="col-xs-9 col-md-4"> 
+                    <h4>Factory of Doom</h4>
+                    <br>
+                            <img class="picture" src="images/plateform.png" alt="Factory of Doom Image">
+                            <br>
+                            <p>
+                                This is a game that I made using Unity engine. It a 2D platformer game,
+                                the player has to escape from this factory because everyone has been
+                                 infected by a virus and have become a zombie.
+                            
+                            </p>
+                            <a href="https://github.com/AliSaim/COMP305-F2016-AssignmentTwo"> 
+                            <i class="fa fa-github fa-2x" aria-hidden="true"></i> Source Code</a>
+                    </div>
+
+
+
+                    <div class="col-xs-9 col-md-4"> 
+                    <h4>Easy as PI</h4>
+                    <br>
+                            <img class="picture" src="images/easyaspie.png" alt="Easy as Pi Image">
+                            <br>
+                            <p>
+                                This is an android app that my group and I are trying to build to teach kids math.
+                                This application is going to be make learning mathematics fun and interesting and rewarding.
+                            
+                            </p>         
+                            <a href="https://github.com/ahmmdd/COMP313_002_F2017_Team2"> 
+                            <i class="fa fa-github fa-2x" aria-hidden="true"></i> Source Code</a>
+                    </div>
+         </div>
+         
+         
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+<!--INCLUDE THE PAGE FOOTER TO THIS VIEW -->
+<% include ../partials/footer.ejs %>

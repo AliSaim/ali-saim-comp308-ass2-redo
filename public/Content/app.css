@@ -1,0 +1,117 @@
+/* Custom CSS goes here */
+body {
+    background:
+	repeating-linear-gradient(
+		45deg,
+		#F9CB8F 1em,
+		#3CBAC8 45em
+	),
+	repeating-linear-gradient(
+		90deg,
+		transparent 0,
+		transparent 0em,
+		#F19181 45em
+	);
+
+background-blend-mode: multiply;
+}
+
+
+h1 {
+    color: blue;
+}
+p {
+    color: black;
+}
+
+
+.container-fluid{
+    padding: 40px;
+     background:
+
+	repeating-linear-gradient(
+		45deg,
+		#F9CB8F 1em,
+		#3CBAC8 30em
+	),
+	repeating-linear-gradient(
+		90deg,
+		transparent 0,
+		transparent 10em,
+		#F19181 40em
+	);
+}
+
+
+
+div.container{
+    margin-top: 20px;
+    margin: auto;
+    text-align: center;
+    background: 
+            repeating-linear-gradient(
+                45deg,
+                #F9CB8F 1em,
+                #3CBAC8 30em
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent 0,
+                transparent 10em,
+                #F19181 40em
+            );
+}
+
+.footerOfPage
+{   margin-top: 20px;
+    background: 
+            repeating-linear-gradient(
+                45deg,
+                #F9CB8F 6em,
+                #3CBAC8 20em
+            ),
+            repeating-linear-gradient(
+                90deg,
+                transparent 0,
+                transparent 10em,
+                #F19181 12em
+            );
+}
+
+img {
+    display: block;
+    width: 40%;
+    margin: auto;
+}
+
+.picture
+{
+    width: 100%;
+}
+
+.center { 
+    height: 400px;
+    width: 800px;
+    position: relative;
+    border: 3px solid green;
+    align-content: center; 
+}
+
+.project{
+    display: block;
+}
+
+
+/* This is use to align the skills to the left in the list */
+.skills{
+    text-align: left;
+}
+
+table {
+    border-collapse: separate;
+}
+
+td {
+    padding: 1em;
+    padding-bottom: .5em;
+}

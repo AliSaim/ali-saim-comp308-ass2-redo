@@ -21,7 +21,7 @@ let router = express.Router();
 let mongoose = require('mongoose');
 
 //create the contact object - represents a document in the contacts collections
-let contact = require('../config/contacts');
+let contact = require('../models/contacts');
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {

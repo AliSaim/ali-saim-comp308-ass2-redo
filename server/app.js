@@ -24,13 +24,12 @@ let index = require('./routes/index');
 let mongoose = require('mongoose');
 //connect to mongoDB and use the contacts database
 
-//Mongoose URI
-//let URI = "mongodb://ali:12345@ds145299.mlab.com:45299/contacts";
+//import the config module
+let config = require('./config/db');
 
 
-let URI = "mongodb://localhost/database";
 //connect to the Mongo db using the URI
-mongoose.connect(URI);
+mongoose.connect(config.URI);
 
 //create a db object and make a reference the connection
 let db = mongoose.connection;
@@ -55,7 +54,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../client')));
 
 app.use('/', index);
 

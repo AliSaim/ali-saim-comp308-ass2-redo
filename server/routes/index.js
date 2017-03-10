@@ -42,8 +42,8 @@ router.get('/contactlist', (req, res, next) => {
     }
     else
     {
-      res.render('content/about', {
-        title: 'About',
+      res.render('content/contactlist', {
+        title: 'ContactList',
         contacts: contacts
       });
     }

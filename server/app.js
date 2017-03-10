@@ -18,8 +18,6 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-let index = require('./routes/index');
-
 //adding the mongoose module
 let mongoose = require('mongoose');
 //connect to mongoDB and use the contacts database
@@ -41,6 +39,8 @@ db.once('open', () => {
 });
 
 
+let index = require('./routes/index');
+let contacts = require('./routes/contacts');
 
 let app = express();
 
@@ -56,7 +56,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
+//route redirects
 app.use('/', index);
+app.use('/contacts', contacts);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {

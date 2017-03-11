@@ -2,13 +2,15 @@
  * File: index.js
  * Student: Ali Saim (300759480)
  * Date Created: Feb 5th 2017
- * Date Last Modified: Feb 10th 2017
+ * Date Last Modified: March 10th 2017
  * Description: index.js is used to route to different pages/tabs
  * Revision History:
  *  Feb 05, 2017:
  * 					Created index.js
- * Feb 10, 2017
+ * Feb 10, 2017:
  *          Added internal documentation
+ * Mar 10, 2017:
+ *          Added routes to projects, and required porject modules for Auth
  */
 
 //import the express object

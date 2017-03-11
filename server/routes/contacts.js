@@ -62,27 +62,35 @@ router.post('/add', (req, res, next) => {
 /* GET edit - show current contact to edit. */
 router.get('/:id', (req, res, next) => {
 
-    //get a refernece to the id of the contact to editg
-    let id =req.params.id;
-
-  //find the contact to edit by it's id in the contacts collections
-  contact.findById(id, (err, contacts) => {
-
-    if(err)
-    { 
-      console.error(err);
-      res.end(error);
-    }
-    else
+    try
     {
-        //show the edit view
-      res.render('contacts/details', {
-        title: 'Contacts Details',
-        contacts: contacts
-      });
-    }
-});
+        //get a refernece to the id of the contact to editg
+        let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
+        //find the contact to edit by it's id in the contacts collections
+        contact.findById(id, (err, contacts) => {
+
+        if(err)
+        { 
+          console.log(err);
+          res.end(error);
+        }
+        else
+        {
+            //show the edit view
+            res.render('contacts/details', {
+            title: 'Contacts Details',
+            contacts: contacts
+            });
+          }
+          });
+      }
+
+      catch (err)
+      {
+          console.log(err);
+          res.redirect('/errors/404');
+      }
 });
 
 

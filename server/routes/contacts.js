@@ -20,7 +20,7 @@ let contact = require('../models/contacts');
 function requireAuth(req, res, next) {
   // check if the user is logged in
   if(!req.isAuthenticated()) {
-    return res.redirect('auth/login');
+    return res.redirect('/login');
   }
   next();
 }
@@ -41,7 +41,8 @@ router.get('/', requireAuth, (req, res, next) => {
     {
       res.render('contacts/index', {
         title: 'Contacts',
-        contacts: contacts
+        contacts: contacts,
+        displayName: req.user ? req.user.displayName : ''
       });
     }
 });
@@ -52,7 +53,8 @@ router.get('/', requireAuth, (req, res, next) => {
 router.get('/add', requireAuth, (req, res, next) =>{
   res.render('contacts/details', {
     title: 'Add a new Contact',
-    contacts: ''
+    contacts: '',
+    displayName: req.user ? req.user.displayName : ''
   });
 });
 
@@ -97,7 +99,8 @@ router.get('/:id', requireAuth, (req, res, next) => {
             //show the edit view
             res.render('contacts/details', {
             title: 'Contacts Details',
-            contacts: contacts
+            contacts: contacts,
+            displayName: req.user ? req.user.displayName : ''
             });
           }
           });

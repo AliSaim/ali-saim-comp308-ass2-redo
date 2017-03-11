@@ -33,7 +33,7 @@ let contact = require('../models/contacts');
 function requireAuth(req, res, next) {
   // check if the user is logged in
   if(!req.isAuthenticated()) {
-    return res.redirect('auth/login');
+    return res.redirect('/login');
   }
   next();
 }
@@ -41,7 +41,10 @@ function requireAuth(req, res, next) {
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
   res.render('content/index', {
-    title: 'Home'
+    title: 'Home',
+    contacts: '',
+    displayName: req.user ? req.user.displayName : ''
+
    });
 });
 
@@ -49,22 +52,54 @@ router.get('/', (req, res, next) => {
 /* GET projects page. */
 router.get('/projects', (req, res, next) => {
   res.render('content/projects', {
-    title: 'Projects'
+    title: 'Projects',
+    displayName: req.user ? req.user.displayName : ''
+    
    });
 });
 
 /* GET services page. */
 router.get('/services', (req, res, next) => {
   res.render('content/services', {
-    title: 'Services'
+    title: 'Services',
+    displayName: req.user ? req.user.displayName : ''
    });
 });
 
 /* GET contact page. */
-router.get('/contact', requireAuth, (req, res, next) => {
+router.get('/contact', (req, res, next) => {
   res.render('content/contact', {
-    title: 'Contact'
+    title: 'Contact',
+    displayName: req.user ? req.user.displayName : ''
    });
 });
+
+//GET / login - render the login view
+router.get('/login', (req, res, next) => {
+  //check to see if the user is already looged in
+if(!req.user)
+{
+//render the login page
+res.render('auth/login', {
+title: 'Login',
+contacts: '',
+messages: req.flash('loginMessage'),
+displayName: req.user ? req.user.displayName : ''
+});
+return;
+}
+else
+{
+  return res.redirect('/contacts'); //redirect to the contact list
+}
+});
+
+//POST / login - process the login page
+router.post('/login', passport.authenticate('local', {
+  successRedirect: '/contacts',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
 
 module.exports = router;

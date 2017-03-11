@@ -65,10 +65,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../client')));
 
-
-
-
-
 //setup sessions
 app.use(session({
   secret: "Joker420",
@@ -82,10 +78,17 @@ app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
 
+
 //route redirects
 app.use('/', index);
 app.use('/contacts', contacts);
 
+//Passport user configuration
+let UserModel = require('./models/users');
+let User = UserModel.User;
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 // Handle 404 Errors
   app.use(function(req, res) {

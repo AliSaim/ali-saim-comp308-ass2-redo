@@ -6,12 +6,29 @@ let router = express.Router();
 
 //import mongoose NPM package
 let mongoose = require('mongoose');
+let passport = require('passport');
+
+
+//define the user models
+let UserModel = require('../models/users');
+let User = UserModel.User; //alias for User
 
 //create the contact object - represents a document in the contacts collections
 let contact = require('../models/contacts');
 
+// create a function to check if the user is authenticated
+function requireAuth(req, res, next) {
+  // check if the user is logged in
+  if(!req.isAuthenticated()) {
+    return res.redirect('auth/login');
+  }
+  next();
+}
+
+
+
 /* GET main contacts page. */
-router.get('/', (req, res, next) => {
+router.get('/', requireAuth, (req, res, next) => {
   //find all contacts in the contacts collections
 
   contact.find((err, contacts) => {
@@ -32,7 +49,7 @@ router.get('/', (req, res, next) => {
 });
 
 //GET add page - show the blank details pages
-router.get('/add', (req, res, next) =>{
+router.get('/add', requireAuth, (req, res, next) =>{
   res.render('contacts/details', {
     title: 'Add a new Contact',
     contacts: ''
@@ -40,7 +57,7 @@ router.get('/add', (req, res, next) =>{
 });
 
 //POST add page - save the Contact to the db
-router.post('/add', (req, res, next) => {
+router.post('/add', requireAuth, (req, res, next) => {
   contact.create({
     "name": req.body.name,
     "age": req.body.age,
@@ -60,7 +77,7 @@ router.post('/add', (req, res, next) => {
 
 
 /* GET edit - show current contact to edit. */
-router.get('/:id', (req, res, next) => {
+router.get('/:id', requireAuth, (req, res, next) => {
 
     try
     {
@@ -96,7 +113,7 @@ router.get('/:id', (req, res, next) => {
 
 
 /* POST edit - process the contact to edit. */
-router.post('/:id', (req, res, next) => {
+router.post('/:id', requireAuth, (req, res, next) => {
 
     //get a refernece to the id of the contact to editg
     let id =req.params.id;
@@ -125,7 +142,7 @@ router.post('/:id', (req, res, next) => {
 
 
 //GET delete - should delete by id
-router.get('/delete/:id', (req, res, next) => {
+router.get('/delete/:id', requireAuth, (req, res, next) => {
 
   //get a reference to the id of the contact to edit
   let id = req.params.id;

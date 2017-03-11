@@ -19,9 +19,24 @@ let router = express.Router();
 
 //import mongoose NPM package
 let mongoose = require('mongoose');
+let passport = require('passport');
 
+//define the user models
+let UserModel = require('../models/users');
+let User = UserModel.User; //alias for User
+
+//define the contact model
 //create the contact object - represents a document in the contacts collections
 let contact = require('../models/contacts');
+
+// create a function to check if the user is authenticated
+function requireAuth(req, res, next) {
+  // check if the user is logged in
+  if(!req.isAuthenticated()) {
+    return res.redirect('auth/login');
+  }
+  next();
+}
 
 /* GET home page. wildcard */
 router.get('/', (req, res, next) => {
@@ -46,7 +61,7 @@ router.get('/services', (req, res, next) => {
 });
 
 /* GET contact page. */
-router.get('/contact', (req, res, next) => {
+router.get('/contact', requireAuth, (req, res, next) => {
   res.render('content/contact', {
     title: 'Contact'
    });

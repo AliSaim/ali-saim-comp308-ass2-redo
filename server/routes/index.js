@@ -42,9 +42,8 @@ function requireAuth(req, res, next) {
 router.get('/', (req, res, next) => {
   res.render('content/index', {
     title: 'Home',
-    contacts: '',
-    displayName: req.user ? req.user.displayName : ''
-
+    displayName: req.user ? req.user.displayName : '',
+    contacts: ''
    });
 });
 

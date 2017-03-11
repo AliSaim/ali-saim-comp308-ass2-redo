@@ -50,12 +50,14 @@
         <li><a href="/services">                    <i class="fa fa-handshake-o fa-2x" aria-hidden="true">    </i> Services</a> </li>
         <li><a href="/contact">                     <i class="fa fa-phone fa-2x" aria-hidden="true">          </i> Contact</a>  </li>
         
+        
         <% } else if(title =="Contacts") { %>
         <li><a href="/">                            <i class="fa fa-home fa-2x" aria-hidden="true">           </i> Home</a>     </li>
         <li class="active"> <a href="/contacts">       <i class="fa fa-info-circle fa-3x" aria-hidden="true">    </i> Contact List</a>    </li>
         <li><a href="/projects">                    <i class="fa fa-laptop fa-2x" aria-hidden="true">         </i> Projects</a> </li>
         <li><a href="/services">                    <i class="fa fa-handshake-o fa-2x" aria-hidden="true">    </i> Services</a> </li>
         <li><a href="/contact">                     <i class="fa fa-phone fa-2x" aria-hidden="true">          </i> Contact</a>  </li>
+        
 
         <% } else if(title =="Projects") { %>
         <li><a href="/">                            <i class="fa fa-home fa-2x" aria-hidden="true">           </i> Home</a>     </li>
@@ -78,6 +80,14 @@
          <li><a href="/services">                    <i class="fa fa-handshake-o fa-2x" aria-hidden="true">    </i> Services</a> </li>
          <li class="active"><a href="/contact">      <i class="fa fa-phone fa-3x" aria-hidden="true">          </i> Contact</a>  </li>
         <% } %>
+
+        <% if(displayName) { %>
+        <li class="navbar-text"><i class="fa fa-user"> </i> Welcome, <%=displayName %> </li>
+        <li><a href="/logout"> <i class="fa fa-sign-out"> </i> Logout!</a></li>
+        <% } else { %>
+          <li><a href="/login"> <i class="fa fa-sign-in"> </i> Login</a></li>
+        <% } %>
+
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

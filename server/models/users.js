@@ -10,14 +10,14 @@ let UserSchema = new Schema({
         default: '',
         trim: true,
         required: 'userName is required'
-    },
+    },/*
     password:
     {
         type: String,
         default: '',
         trim: true,
         required: 'password is required'
-    },
+    },*/
     email:
     {
         type: String,
